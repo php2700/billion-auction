@@ -3,7 +3,7 @@ import Header from "./component/common/header";
 import FeaturedListings from "./component/home/feature";
 import TrendingAuctions from "./component/home/trending";
 import Footer from "./component/common/footer";
-import "./app.css";
+import "./App.css";
 
 const App = () => {
       return (
