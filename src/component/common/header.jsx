@@ -97,7 +97,7 @@
 
 import React, { useState } from "react";
 import { FiSearch, FiHeart, FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/Logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
