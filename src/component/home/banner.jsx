@@ -1,0 +1,177 @@
+import React, { useState } from "react";
+import banner from "../../assets/banner.png";
+import home1 from "../../assets/home-1.jpg";
+import home2 from "../../assets/home-2.jpg";
+import home3 from "../../assets/home-3.jpg";
+import home4 from "../../assets/home-4.jpg";
+import home5 from "../../assets/home-5.jpg";
+
+import { FiHeart, FiShoppingCart, FiSearch } from "react-icons/fi";
+
+const images = [
+  {
+    src: home1, // replace with your image path
+    title: "Dubai luxury car sales",
+    description: "Bid  now",
+    link: "#",
+  },
+  {
+    src: home2,
+    title: "Diomand jewellery ",
+    description: "Shop now",
+    link: "#",
+  },
+  {
+    src: home3, // replace with your image path
+    title: "Live Painting exhibition sale ",
+    description: "Book slot",
+    link: "#",
+  },
+  {
+    src: home4,
+    title: "Persian art ",
+    description: "Bid now",
+    link: "#",
+  },
+  {
+    src: home5,
+    title: `Tangalle villa for sale 
+$1,200,000 USD`,
+    description: "Contact agent",
+    link: "#",
+  },
+];
+
+export default function Banner() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
+  };
+
+  const mainTabs = ["Auctions", "Buy it now", "Marketplace"];
+  const categories = [
+    "Real Estate",
+    "Cars",
+    "Arts",
+    "Jewellery",
+    "Watches",
+    "Collectibles",
+  ];
+
+  return (
+    <>
+      <div className="w-full bg-white shadow-sm">
+        <div className="container mx-auto flex flex-wrap items-center justify-between gap-3 px-4 sm:px-6 lg:px-10 py-3 border-b border-gray-200">
+          {/* Left: Tabs */}
+          <div className="flex flex-wrap justify-center sm:justify-start gap-2 sm:gap-6 w-full sm:w-auto">
+            {mainTabs.map((tab, i) => (
+              <button
+                key={tab}
+                className={`px-4 sm:px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 border 
+          ${
+            i === 0
+              ? "border-blue-700 text-blue-700 shadow-sm"
+              : "border-gray-300 text-gray-700 hover:border-blue-700 hover:text-blue-700"
+          }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          {/* Middle: Search Bar */}
+          <div className="flex items-center border border-gray-300 rounded-xl px-3 py-2 w-full sm:w-64 order-3 sm:order-none">
+            <input
+              type="text"
+              placeholder="Search here"
+              className="outline-none w-full text-sm placeholder-gray-400"
+            />
+            <FiSearch className="text-gray-400 text-lg" />
+          </div>
+
+          {/* Right: Icons */}
+          <div className="flex items-center justify-center space-x-4 w-full sm:w-auto order-2 sm:order-none">
+            <FiHeart className="text-2xl text-gray-700 cursor-pointer hover:text-blue-700" />
+            <FiShoppingCart className="text-2xl text-gray-700 cursor-pointer hover:text-blue-700" />
+          </div>
+        </div>
+
+        <div className="border-y border-gray-200 bg-gray-50 px-4 sm:px-10">
+          <ul className="flex container justify-between mx-auto space-x-3 px-4 sm:px-10 sm:space-x-6 text-md p-2 overflow-x-auto no-scrollbar">
+            {categories.map((item) => (
+              <li
+                key={item}
+                className={`cursor-pointer px-5 py-2 rounded-xl text-sm font-medium border 
+              ${
+                item === "Jewellery"
+                  ? "border-blue-700 text-blue-700 shadow-sm"
+                  : "border-gray-300 text-gray-700 hover:border-blue-700 hover:text-blue-700"
+              } 
+              transition-all duration-200 whitespace-nowrap bg-white`}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className="relative w-full container mx-auto mt-10 overflow-hidden rounded-xl shadow-lg">
+        <img
+          src={images[currentIndex].src}
+          alt={images[currentIndex].title}
+          className="w-full h-[80vh] object-cover"
+        />
+
+        <div
+          className="
+    absolute bottom-4 
+    left-1/2 transform -translate-x-1/2 
+    lg:left-auto lg:right-6 lg:translate-x-0 
+    bg-blue-500/25 backdrop-blur-xs
+    w-[90%] sm:w-[70%] md:w-[60%] lg:w-[350px] 
+    px-6 py-4 lg:px-8 lg:py-6 
+    rounded-xl text-center lg:text-left 
+    shadow-lg transition-all border border-white/10
+  "
+        >
+          <h2 className="text-lg lg:text-2xl text-white font-semibold">
+            {images[currentIndex].title}
+          </h2>
+          <p className="text-base lg:text-lg text-white font-medium mt-2">
+            {images[currentIndex].description}
+          </p>
+        </div>
+
+        <button
+          onClick={prevSlide}
+          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white px-3 py-2 rounded-full shadow-md"
+        >
+          &#60;
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white px-3 py-2 rounded-full shadow-md"
+        >
+          &#62;
+        </button>
+
+        {/* Dots */}
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex space-x-2">
+          {images.map((_, idx) => (
+            <span
+              key={idx}
+              className={`w-2 h-2 rounded-full ${
+                idx === currentIndex ? "bg-white" : "bg-gray-400"
+              }`}
+            ></span>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}

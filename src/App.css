@@ -1,8 +1,8 @@
 
-body{
-  background-color: black ;
-  color: white;
+body {
+  font-family: 'Arima', sans-serif;
 }
+
 
 @keyframes logo-spin {
   from {
