@@ -115,8 +115,7 @@ const Header = () => {
     "AUCTIONS",
     "BUY IT NOW",
     "MARKETPLACE",
-    "ANTIQUES",
-    "DIGITAL",
+    
   ];
 
   const categories = [
@@ -126,6 +125,8 @@ const Header = () => {
     "Jewellery",
     "Watches",
     "Collectibles",
+    "ANTIQUES",
+    "DIGITAL",
   ];
 
   return (
@@ -157,7 +158,7 @@ const Header = () => {
         </div>
 
         {/* Right: Search + Icons + Menu */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
           {/* Search Input (Desktop) */}
           <div className="hidden lg:flex items-center border border-gray-300 rounded-md px-3 py-2 w-64">
             <input
