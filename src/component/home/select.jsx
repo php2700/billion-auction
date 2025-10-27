@@ -43,12 +43,12 @@ const BillionaireSelects = () => {
       </div>
 
       {/* --- Grid Section --- */}
-      <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="relative grid grid-cols-3 gap-6">
         <div className="relative">
           <img
             src={items[0].img}
             alt={items[0].title}
-            className="w-full h-100 object-cover rounded-sm"
+            className="w-full  object-contain rounded-sm"
           />
           <div className="mt-2">
             <div className="flex items-center space-x-2 text-sm text-gray-700">
@@ -67,7 +67,7 @@ const BillionaireSelects = () => {
           <img
             src={items[1].img}
             alt={items[1].title}
-            className="w-full h-100 object-cover rounded-sm"
+            className="w-full  object-contain rounded-sm"
           />
           <div className="mt-2">
             <div className="flex items-center space-x-2 text-sm text-gray-700">
@@ -88,7 +88,7 @@ const BillionaireSelects = () => {
               <img
                 src={item.img}
                 alt={item.title}
-                className="w-full h-36 sm:h-40 object-cover rounded-sm"
+                className="w-full  object-contain rounded-sm"
               />
               <div className="mt-2">
                 <div className="flex items-center space-x-2 text-sm text-gray-700">
@@ -104,7 +104,6 @@ const BillionaireSelects = () => {
             </div>
           ))}
         </div>
-
       </div>
     </div>
   );

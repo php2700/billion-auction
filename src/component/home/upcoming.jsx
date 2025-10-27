@@ -21,7 +21,7 @@ const listings = [
     topText: "AUCTION",
   },
   {
-    name: "A GILT COPPER ALLOY FIGURE OF SHAKYAMUNI BUDDHA",
+    name: "A Gilt Copper Alloy Figure Of Shakyamuni Buddha",
     price: "$40,000",
     date: "26 January 2026 | India",
     img: copper,
@@ -70,18 +70,17 @@ const Upcoming = () => {
 
       {/* Wrapper with relative for positioning arrows */}
       <div className="relative">
-     
-        <div className="grid items-start grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid items-start grid-cols-4 gap-4">
           {listings?.map((item, index) => (
             <div
               key={index}
               className="rounded-lg text-center transition-shadow hover:shadow-lg bg-white"
             >
-              <div className="relative w-full h-64 sm:h-72 flex items-center justify-center overflow-hidden rounded-md">
+              <div className="relative w-full  flex items-center justify-center overflow-hidden rounded-md">
                 <img
                   src={item.img}
                   alt={item.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
                 <span className="absolute top-3 right-3 bg-white text-blue-700 text-xs font-semibold px-2 py-1 rounded shadow-sm">
                   {item.topText}

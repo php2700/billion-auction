@@ -3,8 +3,8 @@ import sell from "../../assets/sell.png";
 export const Sell = () => {
   return (
     <div className="container mx-auto p-6 ">
-      <div className="flex flex-col md:flex-row gap-6">
-        <div className="w-full md:w-1/2 flex flex-col justify-center  rounded-lg shadow-md overflow-hidden bg-gray-200 p-10">
+      <div className="flex flex-row gap-6">
+        <div className="w-1/2 flex flex-col justify-center  rounded-lg shadow-md overflow-hidden bg-gray-200 p-10">
         <div className="mb-4">
           <div className="text-3xl font-bold  text-left">
             Sell with Billionaire Auction
@@ -25,11 +25,11 @@ export const Sell = () => {
             </button>
           </div>
         </div>
-        <div className="w-full md:w-1/2 bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="w-1/2 bg-white rounded-lg  overflow-hidden">
           <img
             src={sell}
             alt="Classic Art Gallery"
-            className="w-full h-[50vh] object-cover"
+            className="w-full h-full  object-cover"
           />
         </div>
       </div>

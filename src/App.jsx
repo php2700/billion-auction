@@ -22,11 +22,11 @@ const App = () => {
         <FeaturedListings />
         <TrendingAuctions />
         <Upcoming />
+        <Discover />
         <ShopByCategory />
       </div>
       <Ad />
       <div className="container mx-auto px-4 sm:px-10">
-        <Discover />
         <NewArrival />
         <Sell />
       </div>

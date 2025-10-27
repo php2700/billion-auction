@@ -21,12 +21,12 @@ export const Ad = () => {
          <div className="w-16 h-[4px] bg-[#A96224] mt-1"></div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-6">
-          <div className="w-full md:w-1/2 bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="flex flex-row gap-6">
+          <div className="w-1/2 bg-white rounded-lg shadow-md overflow-hidden">
             <img
               src={discover}
               alt="Modern Art Exhibition"
-              className="w-full h-[50vh] object-cover"
+              className="w-full  object-contain"
             />
             <div className="p-4">
               <a
@@ -37,11 +37,11 @@ export const Ad = () => {
               </a>
             </div>
           </div>
-          <div className="w-full md:w-1/2 bg-white rounded-lg shadow-md overflow-hidden">
+          <div className="w-1/2 bg-white rounded-lg shadow-md overflow-hidden">
             <img
               src={browse}
               alt="Classic Art Gallery"
-              className="w-full h-[50vh] object-cover"
+              className="w-full  object-contain"
             />
             <div className="p-4">
               <a

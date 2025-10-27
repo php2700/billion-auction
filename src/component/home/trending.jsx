@@ -53,28 +53,25 @@ const TrendingAuctions = () => {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-4 gap-4">
         {listings?.map((item, index) => (
-          <div
-            key={index}
-            className="rounded-lg text-center transition-shadow shadow hover:shadow-lg p-4 bg-white"
-          >
-            <div className="w-full h-64 sm:h-72 flex items-center justify-center overflow-hidden rounded-md">
+          <div key={index} className="rounded-lg text-center">
+            <div className="w-full  flex items-center justify-center overflow-hidden rounded-md">
               <img
                 src={item.img}
                 alt={item.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
             <h3 className="text-[18px] font-bold mt-3">{item.name}</h3>
             <p className="text-[18px] font-bold mt-1">{item.price}</p>
             <p className="text-[15px] mt-1">{item.time}</p>
 
-            <div className="flex justify-center gap-4 mt-3 w-full">
-              <button className="flex-1 shadow-lg hover:text-blue-500 border border-white hover:border-blue-500 hover:border rounded px-4 py-1 transition">
+            <div className="flex flex-col lg:flex-row justify-center gap-4 mt-3 w-full">
+              <button className="flex-1 shadow-lg hover:text-blue-500 border border-white hover:border-blue-500 rounded px-4 py-2 transition">
                 BID
               </button>
-              <button className="flex-1 shadow-lg rounded px-4 py-1 border border-white transition hover:text-blue-500 hover:border hover:border-blue-500">
+              <button className="flex-1 shadow-lg rounded px-4 py-2 border border-white transition hover:text-blue-500 hover:border-blue-500">
                 BUY IT NOW
               </button>
             </div>

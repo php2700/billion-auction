@@ -69,17 +69,17 @@ const ShopByCategory = () => {
  
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-4 gap-6">
           {listings?.map((item, index) => (
             <div
               key={index}
               className="rounded-lg text-center transition-shadow hover:shadow-lg bg-white"
             >
-              <div className="relative w-full h-64 sm:h-72 flex items-center justify-center overflow-hidden rounded-md">
+              <div className="relative w-full  flex items-center justify-center overflow-hidden rounded-md">
                 <img
                   src={item.img}
                   alt={item.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
 
