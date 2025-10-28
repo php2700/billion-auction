@@ -66,7 +66,7 @@ const NewArrival = () => {
             </div>
             <div className="px-4 py-3">
               <h3 className="font-bold text-[18px]">{item.name}</h3>
-              <p className="text-[14px] font-medium mb-2 text-gray-700">
+              <p className="text-[14px] font-medium mb-2 text-gray-700 truncate">
                 {item.desc}
               </p>
               <p className="text-[15px] text-gray-900 font-semibold">
@@ -92,8 +92,8 @@ const NewArrival = () => {
               />
             </div>
             <div className="px-4 py-3">
-              <h3 className="font-bold text-[18px]">{item.name}</h3>
-              <p className="text-[14px] font-medium mb-2 text-gray-700">
+              <h3 className="font-bold text-[18px] ">{item.name}</h3>
+              <p className="text-[14px] font-medium mb-2 text-gray-700 truncate">
                 {item.desc}
               </p>
               <p className="text-[15px] text-gray-900 font-semibold">

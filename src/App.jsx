@@ -1,37 +1,18 @@
 import React from "react";
-import Header from "./component/common/header";
-import FeaturedListings from "./component/home/feature";
-import TrendingAuctions from "./component/home/trending";
-import Footer from "./component/common/footer";
+// import Header from "./component/common/header";
+// import Footer from "./component/common/footer";
 import "./App.css";
-import Banner from "./component/home/banner";
-import Upcoming from "./component/home/upcoming";
-import ShopByCategory from "./component/home/category";
-import { Ad } from "./component/home/ad";
-import Discover from "./component/home/discover";
-import NewArrival from "./component/home/newArrival";
-import { Sell } from "./component/home/sell";
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Home } from "./component/home";
 
 const App = () => {
   return (
-    <div className="min-h-screen ">
-      <Header />
-
-      <Banner />
-      <div className="container mx-auto px-4 sm:px-4">
-        <FeaturedListings />
-        <TrendingAuctions />
-        <Upcoming />
-        <Discover />
-        <ShopByCategory />
-      </div>
-      <Ad />
-      <div className="container mx-auto px-4 sm:px-10">
-        <NewArrival />
-        <Sell />
-      </div>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" index element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

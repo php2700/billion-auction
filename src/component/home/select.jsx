@@ -29,7 +29,7 @@ const BillionaireSelects = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 sm:px-10 py-8 bg-white">
+    <div className="container mx-auto sm:px-4 px-4 py-8 bg-white">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>

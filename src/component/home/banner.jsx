@@ -53,7 +53,7 @@ export default function Banner() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 5000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []); // No dependency needed
@@ -63,7 +63,7 @@ export default function Banner() {
       <img
         src={images[currentIndex].src}
         alt={images[currentIndex].title}
-        className="w-full h-[80vh] object-cover"
+        className="w-full h-[60vh] md:h-[80vh] object-cover"
       />
 
       <div

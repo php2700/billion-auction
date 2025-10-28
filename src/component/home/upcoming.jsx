@@ -93,7 +93,7 @@ const Upcoming = () => {
               </div>
 
               <div className="px-3 py-3 text-left">
-                <h3 className="text-[16px] font-[400]">{item.name}</h3>
+                <h3 className="text-[16px] font-[400] truncate">{item.name}</h3>
                 <p className="text-[13px] text-gray-600 mt-1">{item.date}</p>
 
                 <div className="flex justify-start items-center gap-2 mt-3">
@@ -127,7 +127,7 @@ const Upcoming = () => {
             </div>
 
             <div className="px-3 py-3 text-left">
-              <h3 className="text-[16px] font-[400]">{item.name}</h3>
+              <h3 className="text-[16px] font-[400] truncate">{item.name}</h3>
               <p className="text-[13px] text-gray-600 mt-1">{item.date}</p>
 
               <div className="flex justify-start items-center gap-2 mt-3">

@@ -98,6 +98,7 @@
 import React, { useState } from "react";
 import { FiSearch, FiHeart, FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
 import logo from "../../assets/Logo.png";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -111,11 +112,13 @@ const Header = () => {
     "CONTACT US",
   ];
 
+  // const navLinks = ["AUCTIONS", "BUY IT NOW", "MARKETPLACE"];
   const navLinks = [
-    "AUCTIONS",
-    "BUY IT NOW",
-    "MARKETPLACE",
-    
+    { name: "AUCTIONS", path: "/" },
+    { name: "BUY IT NOW", path: "/buy" },
+    { name: "MARKETPLACE", path: "/market" },
+    { name: "SELL", path: "/sell" },
+    { name: "AUCTION RESULTS", path: "/auction-result" },
   ];
 
   const categories = [
@@ -142,17 +145,23 @@ const Header = () => {
         </div>
       </div>
 
-     
       <div className="container mx-auto flex justify-between items-center px-4 md:px-10 py-3 gap-4">
-       
         <div className="flex items-center space-x-6">
           <img src={logo} alt="Logo" className="h-10 w-auto object-contain" />
 
           <div className="hidden lg:flex space-x-6 font-semibold text-[14px] text-gray-800">
-            {navLinks.map((item) => (
-              <a key={item} href="#" className="hover:text-black">
-                {item}
-              </a>
+            {navLinks?.map((item) => (
+              <NavLink
+                key={item.name}
+                to={item.path}
+                className={({ isActive }) =>
+                  `hover:text-black transition ${
+                    isActive ? "text-[#A96224] border-b-2 border-[#A96224]" : ""
+                  }`
+                }
+              >
+                {item?.name}
+              </NavLink>
             ))}
           </div>
         </div>
@@ -233,7 +242,7 @@ const Header = () => {
                   href="#"
                   className="hover:text-blue-700 whitespace-nowrap"
                 >
-                  {item}
+                  {item?.name}
                 </a>
               ))}
             </div>
