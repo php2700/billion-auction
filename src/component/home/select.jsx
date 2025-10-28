@@ -29,10 +29,11 @@ const BillionaireSelects = () => {
   ];
 
   return (
-    <div className="container mx-auto p-6 px-4 sm:px-10 py-8 bg-white">
+    <div className="container mx-auto px-4 sm:px-10 py-8 bg-white">
+      {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-3xl sm:text-3xl font-bold text-gray-900">
+          <h2 className="text-3xl font-bold text-gray-900">
             Billionaire Selects
           </h2>
           <div className="w-16 h-[4px] bg-[#A96224] mt-1"></div>
@@ -42,14 +43,17 @@ const BillionaireSelects = () => {
         </button>
       </div>
 
-      {/* --- Grid Section --- */}
-      <div className="relative grid grid-cols-3 gap-6">
-        <div className="relative">
-          <img
-            src={items[0].img}
-            alt={items[0].title}
-            className="w-full  object-contain rounded-sm"
-          />
+      {/* Desktop layout (lg and up) */}
+      <div className="hidden lg:grid grid-cols-3 gap-6">
+        {/* Column 1 */}
+        <div>
+          <div className="w-full h-[500px] overflow-hidden rounded-sm">
+            <img
+              src={items[0].img}
+              alt={items[0].title}
+              className="w-full h-full object-cover"
+            />
+          </div>
           <div className="mt-2">
             <div className="flex items-center space-x-2 text-sm text-gray-700">
               <span className="bg-orange-500 w-4 h-4 rounded-sm flex items-center justify-center text-white text-xs font-bold">
@@ -63,12 +67,15 @@ const BillionaireSelects = () => {
           </div>
         </div>
 
+        {/* Column 2 */}
         <div>
-          <img
-            src={items[1].img}
-            alt={items[1].title}
-            className="w-full  object-contain rounded-sm"
-          />
+          <div className="w-full h-[500px] overflow-hidden rounded-sm">
+            <img
+              src={items[1].img}
+              alt={items[1].title}
+              className="w-full h-full object-cover"
+            />
+          </div>
           <div className="mt-2">
             <div className="flex items-center space-x-2 text-sm text-gray-700">
               <span className="bg-orange-500 w-4 h-4 rounded-sm flex items-center justify-center text-white text-xs font-bold">
@@ -82,14 +89,17 @@ const BillionaireSelects = () => {
           </div>
         </div>
 
+        {/* Column 3 (Two stacked images) */}
         <div className="flex flex-col space-y-6">
-          {items?.slice(2).map((item, index) => (
+          {items.slice(2).map((item, index) => (
             <div key={index}>
-              <img
-                src={item.img}
-                alt={item.title}
-                className="w-full  object-contain rounded-sm"
-              />
+              <div className="w-full h-[200px] overflow-hidden rounded-sm">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="mt-2">
                 <div className="flex items-center space-x-2 text-sm text-gray-700">
                   <span className="bg-orange-500 w-4 h-4 rounded-sm flex items-center justify-center text-white text-xs font-bold">
@@ -104,6 +114,35 @@ const BillionaireSelects = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Mobile / Tablet layout (below lg) */}
+      <div className="flex lg:hidden overflow-x-auto gap-6 snap-x snap-mandatory scrollbar-hide">
+        {items.map((item, index) => (
+          <div
+            key={index}
+            className="flex-shrink-0 w-[85%] sm:w-[70%] snap-start"
+          >
+            <div className="w-full h-[300px] overflow-hidden rounded-sm">
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="mt-2">
+              <div className="flex items-center space-x-2 text-sm text-gray-700">
+                <span className="bg-orange-500 w-4 h-4 rounded-sm flex items-center justify-center text-white text-xs font-bold">
+                  🏛
+                </span>
+                <span className="text-[15px]">{item.author}</span>
+              </div>
+              <p className="text-gray-900 font-medium text-[20px] mt-1 leading-snug">
+                {item.title}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

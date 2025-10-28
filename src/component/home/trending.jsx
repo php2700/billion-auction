@@ -53,25 +53,41 @@ const TrendingAuctions = () => {
         </h2>
       </div>
 
-      <div className="grid grid-cols-4 gap-4">
-        {listings?.map((item, index) => (
-          <div key={index} className="rounded-lg text-center">
-            <div className="w-full  flex items-center justify-center overflow-hidden rounded-md">
+      <div
+        className="
+          flex gap-4
+          overflow-x-auto scroll-smooth
+          snap-x snap-mandatory
+          pb-4
+          scrollbar-hide
+          cursor-grab
+        "
+      >
+        {listings.map((item, index) => (
+          <div
+            key={index}
+            className="
+              snap-center
+              min-w-[70%] sm:min-w-[50%] md:min-w-[33%] lg:min-w-[24%]
+              flex-shrink-0 rounded-lg text-center bg-white p-3 
+              
+            "
+          >
+            <div className="w-full flex items-center justify-center overflow-hidden rounded-md">
               <img
                 src={item.img}
                 alt={item.name}
                 className="w-full h-full object-contain"
               />
             </div>
-            <h3 className="text-[18px] font-bold mt-3">{item.name}</h3>
-            <p className="text-[18px] font-bold mt-1">{item.price}</p>
-            <p className="text-[15px] mt-1">{item.time}</p>
+            <h3 className="text-[15px] font-bold mt-3">{item.name}</h3>
+            <p className="text-[15px] font-bold mt-1">{item.price}</p>
 
-            <div className="flex flex-col lg:flex-row justify-center gap-4 mt-3 w-full">
-              <button className="flex-1 shadow-lg hover:text-blue-500 border border-white hover:border-blue-500 rounded px-4 py-2 transition">
+            <div className="flex justify-center gap-3 mt-3">
+              <button className="flex-1 shadow-lg hover:text-blue-500 border border-gray-200 hover:border-blue-500 rounded text-[14px] md:text-base px-2 py-1 md:px-4 md:py-2 transition">
                 BID
               </button>
-              <button className="flex-1 shadow-lg rounded px-4 py-2 border border-white transition hover:text-blue-500 hover:border-blue-500">
+              <button className="flex-1 shadow-lg rounded text-[14px] md:text-base px-2 py-1 md:px-4 md:py-2 border border-gray-200 transition hover:text-blue-500 hover:border-blue-500">
                 BUY IT NOW
               </button>
             </div>
