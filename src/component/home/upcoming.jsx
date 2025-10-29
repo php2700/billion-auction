@@ -7,6 +7,7 @@ import art from "../../assets/art.png";
 import copper from "../../assets/copper.png";
 import rolls from "../../assets/rolls.png";
 import { FaChevronLeft, FaChevronRight, FaInfoCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const listings = [
   {
@@ -52,6 +53,10 @@ const listings = [
 ];
 
 const Upcoming = () => {
+  const navigate = useNavigate();
+  const handleView = () => {
+    navigate("/default");
+  };
   return (
     <section className="relative">
       {/* Header */}
@@ -60,7 +65,10 @@ const Upcoming = () => {
           <h2 className="text-3xl font-bold inline-block">Upcoming Auctions</h2>
           <div className="w-16 h-[4px] bg-[#A96224] mt-1"></div>
         </div>
-        <h2 className="text-[15px] font-semibold my-4 text-blue-600 cursor-pointer">
+        <h2
+          onClick={handleView}
+          className="text-[15px] font-semibold my-4 text-blue-600 cursor-pointer"
+        >
           VIEW ALL
         </h2>
       </div>
@@ -81,7 +89,10 @@ const Upcoming = () => {
                 rounded-lg text-center transition-shadow hover:shadow-lg bg-white
               "
             >
-              <div className="relative w-full flex items-center justify-center overflow-hidden rounded-md">
+              <div
+                className="relative w-full flex items-center justify-center overflow-hidden rounded-md"
+                onClick={handleView}
+              >
                 <img
                   src={item.img}
                   alt={item.name}
@@ -97,7 +108,10 @@ const Upcoming = () => {
                 <p className="text-[13px] text-gray-600 mt-1">{item.date}</p>
 
                 <div className="flex justify-start items-center gap-2 mt-3">
-                  <button className="border border-black text-black font-semibold text-xs tracking-wide rounded-md px-8 py-1 hover:bg-gray-100 transition">
+                  <button
+                    onClick={handleView}
+                    className="border border-black text-black font-semibold text-xs tracking-wide rounded-md px-8 py-1 hover:bg-gray-100 transition"
+                  >
                     BID
                   </button>
                   <FaInfoCircle className="text-gray-600 text-lg" />
@@ -131,7 +145,10 @@ const Upcoming = () => {
               <p className="text-[13px] text-gray-600 mt-1">{item.date}</p>
 
               <div className="flex justify-start items-center gap-2 mt-3">
-                <button className="border border-black text-black font-semibold text-xs tracking-wide rounded-md px-8 py-1 hover:bg-gray-100 transition">
+                <button
+                  onClick={handleView}
+                  className="border border-black text-black font-semibold text-xs tracking-wide rounded-md px-8 py-1 hover:bg-gray-100 transition"
+                >
                   BID
                 </button>
                 <FaInfoCircle className="text-gray-600 text-lg" />

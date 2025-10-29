@@ -3,8 +3,10 @@ import first from "../../assets/sel-fir.png";
 import second from "../../assets/sel-sec.png";
 import third from "../../assets/sel-three.png";
 import four from "../../assets/sel-four.png";
+import { useNavigate } from "react-router-dom";
 
 const BillionaireSelects = () => {
+  const navigate = useNavigate();
   const items = [
     {
       img: first,
@@ -28,6 +30,10 @@ const BillionaireSelects = () => {
     },
   ];
 
+  const handleView = () => {
+    navigate("/default");
+  };
+
   return (
     <div className="container mx-auto sm:px-4 px-4 py-8 bg-white">
       {/* Header */}
@@ -38,7 +44,10 @@ const BillionaireSelects = () => {
           </h2>
           <div className="w-16 h-[4px] bg-[#A96224] mt-1"></div>
         </div>
-        <button className="text-blue-700 font-semibold text-[15px] hover:underline">
+        <button
+          onClick={handleView}
+          className="text-blue-700 font-semibold text-[15px] hover:underline"
+        >
           VIEW ALL
         </button>
       </div>
@@ -47,7 +56,10 @@ const BillionaireSelects = () => {
       <div className="hidden lg:grid grid-cols-3 gap-6">
         {/* Column 1 */}
         <div>
-          <div className="w-full h-[500px] overflow-hidden rounded-sm">
+          <div
+            className="w-full h-[500px] overflow-hidden rounded-sm"
+            onClick={handleView}
+          >
             <img
               src={items[0].img}
               alt={items[0].title}
@@ -69,7 +81,10 @@ const BillionaireSelects = () => {
 
         {/* Column 2 */}
         <div>
-          <div className="w-full h-[500px] overflow-hidden rounded-sm">
+          <div
+            className="w-full h-[500px] overflow-hidden rounded-sm"
+            onClick={handleView}
+          >
             <img
               src={items[1].img}
               alt={items[1].title}
@@ -93,7 +108,10 @@ const BillionaireSelects = () => {
         <div className="flex flex-col space-y-6">
           {items.slice(2).map((item, index) => (
             <div key={index}>
-              <div className="w-full h-[200px] overflow-hidden rounded-sm">
+              <div
+                className="w-full h-[200px] overflow-hidden rounded-sm"
+                onClick={handleView}
+              >
                 <img
                   src={item.img}
                   alt={item.title}

@@ -98,9 +98,10 @@
 import React, { useState } from "react";
 import { FiSearch, FiHeart, FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
 import logo from "../../assets/Logo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const topLinks = [
@@ -110,15 +111,16 @@ const Header = () => {
     "HOW PIXEL SALE WORK",
     "PIXEL'S SALE",
     "CONTACT US",
+    
   ];
 
   // const navLinks = ["AUCTIONS", "BUY IT NOW", "MARKETPLACE"];
   const navLinks = [
     { name: "AUCTIONS", path: "/" },
-    { name: "BUY IT NOW", path: "/buy" },
-    { name: "MARKETPLACE", path: "/market" },
-    { name: "SELL", path: "/sell" },
-    { name: "AUCTION RESULTS", path: "/auction-result" },
+    { name: "BUY IT NOW", path: "/default" },
+    { name: "MARKETPLACE", path: "/default" },
+    { name: "SELL", path: "/default" },
+    { name: "AUCTION RESULTS", path: "/default" },
   ];
 
   const categories = [
@@ -132,13 +134,21 @@ const Header = () => {
     "DIGITAL",
   ];
 
+  const handleView = () => {
+    navigate("/default");
+  };
+
   return (
     <header className="w-full bg-white border-b border-gray-200">
       {/* --- Top Row (Desktop Only) --- */}
       <div className="hidden lg:block border-b border-gray-100 text-[13px] font-medium">
         <div className="container mx-auto flex justify-end items-center gap-8 px-6 py-2 text-gray-700">
           {topLinks.map((item) => (
-            <a key={item} href="#" className="hover:text-black font-semibold">
+            <a
+              key={item}
+              onClick={handleView}
+              className="hover:text-black font-semibold"
+            >
               {item}
             </a>
           ))}
@@ -209,6 +219,7 @@ const Header = () => {
                     : "border-gray-300 text-gray-700 hover:border-blue-700 hover:text-blue-700"
                 } 
                 transition-all duration-200 whitespace-nowrap bg-white`}
+                onClick={handleView}
               >
                 {item}
               </li>
@@ -226,7 +237,7 @@ const Header = () => {
               {topLinks.map((item) => (
                 <a
                   key={item}
-                  href="#"
+                  onClick={handleView}
                   className="hover:text-blue-700 whitespace-nowrap"
                 >
                   {item}
@@ -239,8 +250,7 @@ const Header = () => {
               {navLinks.map((item) => (
                 <a
                   key={item}
-                  href="#"
-                  className="hover:text-blue-700 whitespace-nowrap"
+                  className="hover:text-blue-700 whitespace-nowrap font-bold"
                 >
                   {item?.name}
                 </a>
@@ -253,6 +263,7 @@ const Header = () => {
                 <span
                   key={item}
                   className="hover:text-blue-700 cursor-pointer whitespace-nowrap"
+                  onClick={handleView}
                 >
                   {item}
                 </span>

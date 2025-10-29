@@ -8,8 +8,13 @@ import {
   FaEnvelope,
   FaPhoneAlt,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const handleView = () => {
+    navigate("/default");
+  };
   return (
     <footer className="bg-[#000000] text-white py-10 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -44,12 +49,12 @@ const Footer = () => {
           <h3 className="text-[20px] font-bold mb-3 text-white">Links</h3>
           <ul className="space-y-2 text-[15px] font-medium">
             <li>
-              <a href="#" className="hover:text-white transition">
+              <a onClick={handleView} className="hover:text-white transition">
                 About Us
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-white transition">
+              <a onClick={handleView} className="hover:text-white transition">
                 About us How pixels sale work{" "}
               </a>
             </li>

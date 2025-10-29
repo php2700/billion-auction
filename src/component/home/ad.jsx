@@ -2,6 +2,7 @@ import adImg from "../../assets/man.png";
 import discover from "../../assets/discover.png";
 import browse from "../../assets/browse.png";
 import BillionaireSelects from "./select";
+import { useNavigate } from "react-router-dom";
 
 export const Ad = () => {
   const privateSales = [
@@ -16,7 +17,10 @@ export const Ad = () => {
       title: "Browse Works Available for Private Sale",
     },
   ];
-
+  const navigate = useNavigate();
+  const handleView = () => {
+    navigate("/default");
+  };
   return (
     <>
       {/* Top Ad Image */}
@@ -60,7 +64,7 @@ export const Ad = () => {
                 shadow-md 
                 overflow-hidden 
                 snap-start
-              "
+              " onClick={handleView}
             >
               <img
                 src={item.img}
@@ -72,7 +76,7 @@ export const Ad = () => {
                   href="#"
                   className="block w-full text-start py-2 px-4 rounded-lg text-2xl font-semibold transition duration-200"
                 >
-                  {item.title}
+                  {item?.title}
                 </a>
               </div>
             </div>

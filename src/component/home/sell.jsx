@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import sell from "../../assets/sell.png";
 
 export const Sell = () => {
+  const navigate = useNavigate();
+  const handleView = () => {
+    navigate("/default");
+  };
   return (
     <div className="container mx-auto p-6">
       <div className="flex flex-col md:flex-row gap-6">
@@ -22,14 +27,20 @@ export const Sell = () => {
             now.
           </div>
           <div className="my-4 text-center md:text-left">
-            <button className="rounded-2xl text-white bg-[#A96224] px-4 py-2 text-2xl">
+            <button
+              onClick={handleView}
+              className="rounded-2xl text-white bg-[#A96224] px-4 py-2 text-2xl"
+            >
               Request an Estimate
             </button>
           </div>
         </div>
 
         {/* Right Section */}
-        <div className="md:w-1/2 bg-white rounded-lg overflow-hidden">
+        <div
+          className="md:w-1/2 bg-white rounded-lg overflow-hidden"
+          onClick={handleView}
+        >
           <img
             src={sell}
             alt="Classic Art Gallery"

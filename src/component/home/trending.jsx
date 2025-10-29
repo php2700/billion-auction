@@ -2,6 +2,7 @@ import bag from "../../assets/bikrinb-bag.png";
 import rolex from "../../assets/rolex-daytona.png";
 import dustun from "../../assets/jaguar.png";
 import diamond from "../../assets/billiondiamond.png";
+import { useNavigate } from "react-router-dom";
 
 const listings = [
   {
@@ -38,7 +39,14 @@ const listings = [
   },
 ];
 
+
+
 const TrendingAuctions = () => {
+
+  const navigate = useNavigate();
+  const handleView = () => {
+    navigate("/default");
+  };
   return (
     <section>
       <div className="flex justify-between items-center mt-6">
@@ -48,7 +56,7 @@ const TrendingAuctions = () => {
           </h2>
           <div className="w-16 h-[4px] bg-[#A96224] mt-1"></div>
         </div>
-        <h2 className="text-[15px] font-semibold my-4 text-blue-600 cursor-pointer">
+        <h2 onClick={handleView} className="text-[15px] font-semibold my-4 text-blue-600 cursor-pointer">
           View All
         </h2>
       </div>
@@ -65,7 +73,7 @@ const TrendingAuctions = () => {
       >
         {listings.map((item, index) => (
           <div
-            key={index}
+            key={index} 
             className="
               snap-center
               min-w-[70%] sm:min-w-[50%] md:min-w-[33%] lg:min-w-[24%]
@@ -77,17 +85,18 @@ const TrendingAuctions = () => {
               <img
                 src={item.img}
                 alt={item.name}
-                className="w-full h-full object-contain"
+                className="w-full h-64 md:h-72 object-cover"
               />
             </div>
             <h3 className="text-[15px] font-bold mt-3">{item.name}</h3>
             <p className="text-[15px] font-bold mt-1">{item.price}</p>
+            <p className="text-[15px] font-bold mt-1">{item.time}</p>
 
             <div className="flex justify-center gap-3 mt-3">
-              <button className="flex-1 shadow-lg hover:text-blue-500 border border-gray-200 hover:border-blue-500 rounded text-[14px] md:text-base px-2 py-1 md:px-4 md:py-2 transition">
+              <button onClick={handleView} className="flex-1 shadow-lg hover:text-blue-500 border border-gray-200 hover:border-blue-500 rounded text-[14px] md:text-base px-2 py-1 md:px-4 md:py-2 transition">
                 BID
               </button>
-              <button className="flex-1 shadow-lg rounded text-[14px] md:text-base px-2 py-1 md:px-4 md:py-2 border border-gray-200 transition hover:text-blue-500 hover:border-blue-500">
+              <button onClick={handleView} className="flex-1 shadow-lg rounded text-[14px] md:text-base px-2 py-1 md:px-4 md:py-2 border border-gray-200 transition hover:text-blue-500 hover:border-blue-500">
                 BUY IT NOW
               </button>
             </div>

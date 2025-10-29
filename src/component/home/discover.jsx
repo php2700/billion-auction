@@ -7,6 +7,7 @@ import house3 from "../../assets/house3.png";
 import house4 from "../../assets/house4.png";
 import necklace from "../../assets/shop-neclace.png";
 import watch from "../../assets/up-watch.png";
+import { useNavigate } from "react-router-dom";
 
 const listings = [
   {
@@ -36,6 +37,10 @@ const listings = [
 ];
 
 const Discover = () => {
+  const navigate = useNavigate();
+  const handleView = () => {
+    navigate("/default");
+  };
   return (
     <section className="relative my-6 container mx-auto px-4">
       {/* Header */}
@@ -46,7 +51,10 @@ const Discover = () => {
           </h2>
           <div className="w-16 h-[4px] bg-[#A96224] mt-1"></div>
         </div>
-        <h2 className="text-[15px] font-semibold text-blue-600 cursor-pointer hover:underline">
+        <h2
+          onClick={handleView}
+          className="text-[15px] font-semibold text-blue-600 cursor-pointer hover:underline"
+        >
           VIEW ALL
         </h2>
       </div>
@@ -58,7 +66,10 @@ const Discover = () => {
             key={index}
             className="bg-white rounded-lg shadow-sm hover:shadow-lg transition"
           >
-            <div className="relative w-full overflow-hidden rounded-md">
+            <div
+              onClick={handleView}
+              className="relative w-full overflow-hidden rounded-md"
+            >
               <img
                 src={item.img}
                 alt={item.name}
@@ -95,7 +106,7 @@ const Discover = () => {
               flex-shrink-0 bg-white rounded-lg shadow-sm hover:shadow-md transition
             "
           >
-            <div className="relative w-full flex items-center justify-center overflow-hidden rounded-t-md">
+            <div className="relative w-full flex items-center justify-center overflow-hidden rounded-t-md"  onClick={handleView}>
               <img
                 src={item.img}
                 alt={item.name}

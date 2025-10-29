@@ -2,6 +2,7 @@ import cartier from "../../assets/haermeas.jpg";
 import hermes from "../../assets/haermeas-2.png";
 import platinum from "../../assets/platinum.jpg";
 import rolex from "../../assets/rolex.jpg";
+import { useNavigate } from "react-router-dom";
 
 const listings = [
   {
@@ -35,6 +36,10 @@ const listings = [
 ];
 
 const NewArrival = () => {
+  const navigate=useNavigate();
+    const handleView = () => {
+    navigate("/default");
+  };
   return (
     <section className="relative my-6 container mx-auto px-4">
       {/* Header */}
@@ -45,7 +50,7 @@ const NewArrival = () => {
           </h2>
           <div className="w-16 h-[4px] bg-[#A96224] mt-1"></div>
         </div>
-        <h2 className="text-[15px] font-semibold text-blue-600 cursor-pointer hover:underline">
+        <h2 onClick={handleView} className="text-[15px] font-semibold text-blue-600 cursor-pointer hover:underline">
           VIEW ALL
         </h2>
       </div>
@@ -57,7 +62,7 @@ const NewArrival = () => {
             key={index}
             className="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow"
           >
-            <div className="relative w-full overflow-hidden rounded-md">
+            <div className="relative w-full overflow-hidden rounded-md" onClick={handleView}>
               <img
                 src={item.img}
                 alt={item.name}
@@ -84,7 +89,7 @@ const NewArrival = () => {
             key={index}
             className="flex-shrink-0 w-[85%] sm:w-[65%] bg-white rounded-lg shadow-sm hover:shadow-md snap-start"
           >
-            <div className="relative w-full overflow-hidden rounded-md">
+            <div className="relative w-full overflow-hidden rounded-md " onClick={handleView}>
               <img
                 src={item.img}
                 alt={item.name}

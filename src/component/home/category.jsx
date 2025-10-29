@@ -5,6 +5,7 @@ import necklace from "../../assets/shop-neclace.png";
 import watch from "../../assets/richar.jpg";
 
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const listings = [
   {
@@ -34,6 +35,10 @@ const listings = [
 ];
 
 const ShopByCategory = () => {
+  const navigate = useNavigate();
+  const handleView = () => {
+    navigate("/default");
+  };
   return (
     <section className="relative mt-6">
       {/* Header */}
@@ -42,7 +47,10 @@ const ShopByCategory = () => {
           <h2 className="text-3xl font-bold inline-block">Shop by Category</h2>
           <div className="w-16 h-[4px] bg-[#A96224] mt-1"></div>
         </div>
-        <h2 className="text-[15px] font-semibold text-blue-600 cursor-pointer hover:underline">
+        <h2
+          onClick={handleView}
+          className="text-[15px] font-semibold text-blue-600 cursor-pointer hover:underline"
+        >
           VIEW ALL
         </h2>
       </div>
@@ -68,7 +76,10 @@ const ShopByCategory = () => {
               flex-shrink-0 bg-white rounded-lg
             "
           >
-            <div className="relative w-full  flex items-center justify-center overflow-hidden rounded-t-lg">
+            <div
+              className="relative w-full  flex items-center justify-center overflow-hidden rounded-t-lg"
+              onClick={handleView}
+            >
               <img
                 src={item.img}
                 alt={item.name}
@@ -78,10 +89,10 @@ const ShopByCategory = () => {
 
             <div className="px-4 py-3 text-start">
               <h3 className="text-[18px] font-semibold">{item.name}</h3>
-              <p className="text-[14px] text-gray-500">{item.date}</p>
-              <p className="text-[15px] font-bold mt-1 text-gray-800">
+              {/* <p className="text-[14px] text-gray-500">{item.date}</p> */}
+              {/* <p className="text-[15px] font-bold mt-1 text-gray-800">
                 {item.price}
-              </p>
+              </p> */}
             </div>
           </div>
         ))}
