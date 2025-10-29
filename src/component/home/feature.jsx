@@ -35,7 +35,7 @@ const FeaturedListings = () => {
   };
 
   const handleOld = () => {
-    window.open("https://billionaireauction.com/", "_blank");
+    window.open("https://oldweb.billionaireauction.com/", "_blank");
   };
 
   return (
