@@ -66,19 +66,19 @@ export const Ad = () => {
                 snap-start
               " onClick={handleView}
             >
-              <img
-                src={item.img}
-                alt={item.alt}
-                className="w-full object-contain h-full"
-              />
-              <div className="p-4">
-                <a
-                  href="#"
-                  className="block w-full text-start py-2 px-4 rounded-lg text-2xl font-semibold transition duration-200"
-                >
-                  {item?.title}
-                </a>
-              </div>
+             <img
+  src={item.img}
+  alt={item.alt}
+  className="w-full h-[40vh] md:[50vh] object-cover"
+/>
+<div className="p-4 mt-2">
+  <button
+    onClick={handleView}
+    className="block w-full text-start py-2 px-4 rounded-lg text-2xl font-semibold text-gray-800 hover:text-[#A96224] transition duration-200"
+  >
+    {item?.title}
+  </button>
+</div>
             </div>
           ))}
         </div>
